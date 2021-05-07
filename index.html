@@ -1,23 +1,50 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css"></head>
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-  <h2>Introduction:</h2>
-  <p>I tried to put some logic to check the availability of the vaccine in a particular district with the help of JavaScript and Postman. For this I did try to get the response from api used in "https://www.cowin.gov.in/home" portal. I filtered the data on the basies of the age (18 to 45) and availability. Then I printed the relevant data which I needed in the console. This data I printed in every 1 second with the help of timer.</p>
-  <h2>Prerequisite:</h2>
-  <li>
-	<ol>Little knowledge of JavaScript.</ol>
-	<ol>Undersanding of Postman tool.</ol>
-	<ol>Understanding of Google Chrome or Firefox Debugger.</ol>
-  </li>
-  <h2>Process:</h2>
-  <li>
-	<ol>Open this portal on your laptop "https://www.cowin.gov.in/home" in your Google Chrome (I used this, you can use Firefox as well).</ol>
-	<ol>Open the Chrome Debugger tools by pressing F12 key on your keyboard or you can do this on the portal anywhere: Right click -> Inspect.</ol>
-	<img class="debug_image" src="first.jpg"/>
+<h2>Introduction:</h2>
+<p>I tried to put some logic to check the availability of the vaccine in a particular district with the help of
+    JavaScript and Postman. For this I did try to get the response from api used in "https://www.cowin.gov.in/home"
+    portal. I filtered the data on the basies of the age (18 to 45) and availability. Then I printed the relevant data
+    which I needed in the console. This data I printed in every 1 second with the help of timer.</p>
+<h2>Prerequisite:</h2>
+<li>
+    <ol>Little knowledge of JavaScript.</ol>
+    <ol>Undersanding of Postman tool.</ol>
+    <ol>Understanding of Google Chrome or Firefox Debugger.</ol>
+</li>
+<h2>Process:</h2>
+<li>
+    <ol>Open this portal on your laptop "https://www.cowin.gov.in/home" in your Google Chrome (I used this, you can use
+        Firefox as well).
+    </ol>
+    <ol>Open the Chrome Debugger tools by pressing F12 key on your keyboard or you can do this on the portal anywhere:
+        Right click -> Inspect.
+    </ol>
+    <img class="debug_image" src="first.jpg"/>
+    <br>
+    <br>
     <ol>Go to the "Network" tab and clear the previous network calls.</ol>
     <img class="debug_image" src="clearConsole.jpg"/>
-  </li>
+    <br>
+    <br>
+    <ol>Go to the Cowin Portal again and either click on <b>"Search by Pin"</b> or <b>"Search by District"</b>. In
+        this following image,I have selected the <b>"Search by District"</b> option. Then Select your preferred State
+        and District and hit <b>"Search"</b> button.
+    </ol>
+    <img class="debug_image" src="search.jpg"/>
+    <br>
+    <br>
+    <ol>Now go to the Crome Debugger and check that an API calling entry should be there in the left side pane. Click on
+        that and copy the url.
+    </ol>
+    <img class="debug_image" src="copyURL.jpg"/>
+    <br>
+    <br>
+    <ol>Now open the Postman and</ol>
+    <img class="debug_image" src="copyURL.jpg"/>
+</li>
 </body>
 </html>
