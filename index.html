@@ -17,34 +17,98 @@
 </ul>
 <h2>Process:</h2>
 <ol>
-    <li>Open this portal on your laptop <b>"https://www.cowin.gov.in/home"</b> in your Google Chrome (I used this, you can use
+    <li>Open this portal on your laptop <b>"https://www.cowin.gov.in/home"</b> in your Google Chrome (I used this, you
+        can use
         Firefox as well).
     </li>
-    <li>Open the Chrome Debugger tools by pressing <b>F12</b> key on your keyboard or you can do this on the portal anywhere by:
+    <br>
+    <li>Open the Chrome Debugger tools by pressing <b>F12</b> key on your keyboard or you can do this on the portal
+        anywhere by:
         <b>Right click -> Inspect</b>.
     </li>
+    <br>
     <img class="debug_image" src="first.jpg"/>
+
     <br>
     <br>
-    <ol>Go to the <b>"Network"</b> tab and clear the previous network calls.</ol>
+    <li>Go to the <b>"Network"</b> tab and clear the previous network calls.</li>
+    <br>
     <img class="debug_image" src="clearConsole.jpg"/>
+
     <br>
     <br>
     <li>Go to the Cowin Portal again and either click on <b>"Search by Pin"</b> or <b>"Search by District"</b>. In
         this following image,I have selected the <b>"Search by District"</b> option. Then Select your preferred State
         and District and hit <b>"Search"</b> button.
     </li>
+    <br>
     <img class="debug_image" src="search.jpg"/>
+
     <br>
     <br>
     <li>Now go to the Crome Debugger and check that an API calling entry should be there in the left side pane. Click on
         that, copy the url and keep this URL in a text file to use in one of the upcoming steps.
     </li>
+    <br>
     <img class="debug_image" src="copyURL.jpg"/>
+
     <br>
     <br>
-    <li>Now open the Postman and click on <b>"NEW"</b>.</li>
+    <li>Now open the Postman and click on <b>"NEW"</b>. Then select <b>"Request"</b></li>
+    .
+    <br>
     <img class="debug_image" src="selectRequest.jpg"/>
+
+    <br>
+    <br>
+    <li>Now open the Postman and click on <b>"NEW"</b>. Then select <b>"Request"</b></li>
+    .
+    <br>
+    <img class="debug_image" src="selectRequest.jpg"/>
+
+    <br>
+    <br>
+    <li>Now provide the <b>"Name"</b>. Select or create the Collection/Folder and save it</li>
+    .
+    <br>
+    <img class="debug_image" src="saveRequest.jpg"/>
+
+    <br>
+    <br>
+    <li>Paste the URL inside the URL input box and make sure the left side dropDown should be set to <b>"GET"</b>.
+        Automatically <b>"district_id"</b> and <b>"date"</b> PARAMETERS will get populated under the <b>"Params"</b>
+        tab.
+    </li>
+    <br>
+    <img class="debug_image" src="params.jpg"/>
+
+    <br>
+    <br>
+    <li>Go to <b>"Test"</b> tab and paste the code snippet (given below)inside the text box.
+    </li>
+    <pre class="line-numbers">
+      <code class="language-javascript">
+        let respData = []
+
+        setInterval(function(){
+        _.each(pm.response.json().centers, (item) => {
+            _.each(item.sessions, (subItem) => {
+                if(subItem.min_age_limit < 45 && subItem.available_capacity > 0) {
+                respData.push({
+                   Name: item.name,
+                    BlockName: item.block_name,
+                    Capacity: subItem.available_capacity,
+                  })
+                }
+            })
+         });
+        console.log(respData);
+        }, 1000);
+
+      </code>
+    </pre>
+    <br>
+    <img class="debug_image" src="params.jpg"/>
 </ol>
 </body>
 </html>
